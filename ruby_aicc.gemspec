@@ -4,8 +4,5 @@ Gem::Specification.new do |s|
   s.authors =       "Stephen Wright"
   s.summary =       %q{Gem to create objects from AICC calls}
 
-  s.files = [
-    "lib/aicc.rb"
-    ]
-  s.require_paths = ["lib"]
+  s.files = "lib/**/*.rb"
 end
