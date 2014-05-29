@@ -1,9 +1,10 @@
-require 'rubygems'
-require 'rake'
-require 'rake/testtask'
 require 'rspec/core/rake_task'
+require 'bundler/gem_tasks'
 
-RSpec::Core::RakeTask.new('spec')
+# Default directory to look in is `/specs`
+# Run with `rake spec`
+RSpec::Core::RakeTask.new(:spec) do |task|
+  task.rspec_opts = ['--color', '--format', 'nested']
+end
 
-desc "Run specs"
 task :default => :spec

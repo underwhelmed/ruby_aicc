@@ -1,7 +1,5 @@
-module RubyAicc
-  def self.version_string
-    "RubyAicc version #{RubyAicc::VERSION}"
-  end
+require "ruby_aicc/version"
 
-  VERSION = "0.1.0"
+module RubyAicc
+  # Your code goes here...
 end

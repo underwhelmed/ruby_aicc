@@ -1,4 +1,5 @@
 require 'rspec'
+require 'pry'
 require 'ruby_aicc'
 
 RSpec.configure do |config|

@@ -1,17 +1,31 @@
-$LOAD_PATH.push File.expand_path("../lib", __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ruby_aicc/version'
 
-Gem::Specification.new do |s|
-  s.name =          %q{ruby_aicc}
-  s.version =       RubyAicc::VERSION
-  s.authors =       "Stephen Wright"
-  s.summary =       %q{Gem to create objects from AICC calls}
-  s.description =   %q{This Ruby library will help to connect courseware HTTP calls to your application}
-  s.email =         %q{steve@smwsoftware.com}
-  s.homepage =      %q{http://github.com/underwhelmed/ruby_aicc}
+Gem::Specification.new do |spec|
+  spec.name          = "ruby_aicc"
+  spec.version       = RubyAicc::VERSION
+  spec.authors       = ["Stephen Wright"]
+  spec.summary =       %q{Gem to create objects from AICC calls}
+  spec.description =   %q{This Ruby library will help to connect courseware HTTP calls to your application}
+  spec.email =         %q{steve@smwsoftware.com}
+  spec.homepage =      %q{http://github.com/underwhelmed/ruby_aicc}
+  spec.license       = "MIT"
 
-  s.files =         Dir.glob("lib/**/*.rb")
-  s.test_files =    Dir.glob("spec/**/*.rb")
+  spec.files         = `git ls-files -z`.split("\x0")
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "rake"
   
-  s.add_development_dependency 'rspec', '~> 2.5'
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec-nc"
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"  
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-remote"
+  spec.add_development_dependency "pry-nav"
 end
